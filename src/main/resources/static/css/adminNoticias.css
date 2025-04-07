@@ -1,0 +1,75 @@
+/* Estilos generales para el main */
+main {
+    background-color: #f8f9fa; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos del panel */
+h2 {
+    color: #ffcc00; /* Color amarillo */
+    margin-bottom: 20px;
+}
+
+/* Estilo del formulario */
+form {
+    
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Campos de entrada */
+.form-control {
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px;
+}
+
+/* Estilo para el botón */
+.btn-primary {
+    background-color: #ffcc00; /* Color amarillo */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e6b800; /* Amarillo más oscuro al pasar el mouse */
+}
+
+/* Estilo para la tabla */
+.table {
+    margin-top: 20px;
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px;
+    overflow: hidden; /* Para esquinas redondeadas en la tabla */
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Colapsar bordes */
+}
+
+.table thead {
+    background-color: #ffcc00; /* Encabezado amarillo */
+    color: #ffffff; /* Texto blanco en el encabezado */
+}
+
+.table th, .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Borde gris para las filas */
+    text-align: left; /* Alinear texto a la izquierda */
+    word-wrap: break-word; /* Romper palabras largas */
+}
+
+/* Estilo para las filas */
+.table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fila gris claro */
+}
+
+
+.thead-dark th {
+    background-color: #343a40; /* Color de fondo para encabezados */
+    color: white; /* Color de texto en encabezados */
+}
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/Usuario.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <form action="/login" method="post" class="form-box">
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required placeholder="Ingresa tu correo">
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required placeholder="Ingresa tu contraseña">
+            
+            <button type="submit" class="btn-primary">Iniciar sesión</button>
+            
+            <div th:if="${error}" class="error-msg">
+                <p>Credenciales incorrectas. Inténtalo de nuevo.</p>
+            </div>
+            
+            <p>¿No tienes una cuenta?</p>
+            <a href="/crear-usuario" class="btn-secondary">Crear Usuario</a>
+        </form>
+    </div>
+</body>
+</html>

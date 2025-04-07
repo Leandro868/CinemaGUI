@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>La Estación Cine-Noticias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <!-- Estilos personalizados -->
+        <link rel="stylesheet" th:href="@{/css/styles.css}">
+        <link rel="stylesheet" th:href="@{/css/estilonoticias.css}">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img th:src="@{/imagenes/logo.jpeg}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                        La Estación Cine
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-white"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarTop"><br>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                            <button class="btn btn-style" type="submit">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-main mt-3">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-white"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link mx-3" th:href="@{/}">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-3" th:href="@{/Cartelera}">Cartelera</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-3" th:href="@{/}">Próximos Estrenos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-3" th:href="@{/lista}">Noticias</a>
+                            </li>
+                            <!-- Menú desplegable "MI CUENTA" -->
+                            <!-- Menú desplegable "MI CUENTA" -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-3" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mi Cuenta
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                                    <!-- Mostrar opciones solo si el usuario NO está autenticado -->
+                                    <li sec:authorize="isAnonymous()">
+                                        <a class="dropdown-item" th:href="@{/login}">Conéctate</a>
+                                    </li>
+                                    <li sec:authorize="isAnonymous()">
+                                        <a class="dropdown-item" th:href="@{/registro}">Crea tu cuenta</a>
+                                    </li>
+                                    <!-- Mostrar opciones solo si el usuario está autenticado -->
+                                    <li sec:authorize="isAuthenticated()">
+                                        <a class="dropdown-item" th:href="@{/admin}">Dasboarsh</a>
+                                    </li>
+                                    <li sec:authorize="isAuthenticated()">
+                                        <a class="dropdown-item" th:href="@{/logout}">Cerrar sesión</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Sección de noticias y lugares turísticos -->
+        <div class="container mt-5">
+            <h1>Noticias</h1>
+            <div class="row">
+                <div th:each="noticia, iterStat : ${noticias}"
+                     th:classappend="${iterStat.index % 5 == 0 ? 'col-md-8' : 'col-md-4'}"
+                     class="my-3">
+                    <div class="card">
+                        <a th:href="@{/noticias/{id}(id=${noticia.id})}" style="text-decoration: none; color: inherit;">
+                            <img th:src="${noticia.imagen}" class="card-img-top" alt="Imagen de la noticia">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${noticia.titulo}" style="color:#ffffff"></h5>
+                                <p class="card-text" th:text="${noticia.fechaFormateada}"></p>
+
+                                <!-- Botón de editar visible solo para administradores -->
+                                <!-- <div th:if="${#authentication.principal.role == 'ADMIN'}">
+                                    <a class="btn btn-warning" th:href="@{/editar/{id}(id=${noticia.id})}">
+                                        <i class="bi bi-pencil-square"></i> Editar
+                                    </a>
+                                </div> -->
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Paginación -->
+            <nav aria-label="Paginación de noticias">
+                <ul class="pagination">
+                    <li class="page-item" th:classappend="${noticias.first} ? 'disabled'">
+                        <a class="page-link" th:href="@{/lista(page=${noticias.number - 1})}">Anterior</a>
+                    </li>
+                    <li class="page-item" th:classappend="${noticias.last} ? 'disabled'">
+                        <a class="page-link" th:href="@{/lista(page=${noticias.number + 1})}">Siguiente</a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Sobre Nosotros -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Sobre Nosotros</h5>
+                        <p>Somos una comunidad apasionada por el cine, compartiendo las últimas noticias y reseñas de películas.</p>
+                    </div>
+                    <!-- Enlaces Rápidos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Cartelera</a></li>
+                            <li><a href="#">Próximos Estrenos</a></li>
+                            <li><a href="">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <!-- Síguenos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Síguenos</h5>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="mt-3">&copy; 2024 La Estación Cine. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS y dependencias -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>

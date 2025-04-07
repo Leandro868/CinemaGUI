@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin - La Estación Cine</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="icon" href="@{/imagenes/logo.jpeg}" type="image/png">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/Admi.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img th:src="@{/imagenes/logo.jpeg}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                        Admin - La Estación Cine
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarAdmin">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/RegistroPeliculas}">Gestion de Cartelera</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/listaEstrenos}"><b>Gestión de Estrenos</b></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/editarEstreno}">Edicion de Estrenos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/RegistroNoticia}">Gestión de Noticias</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/logout}">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="container mt-5 text-center">
+            <div class="container mt-5 mb-5">
+                <h1>Registrar Nuevo Estreno</h1>
+                <form th:action="@{/register}" method="post" enctype="multipart/form-data" onsubmit="concatenarIdiomas()">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="autor">Autor:</label>
+                        <input type="text" class="form-control" id="autor" name="autor" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="sinopsis">Sinopsis:</label>
+                        <textarea class="form-control" id="sinopsis" name="sinopsis" rows="3" required></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="duracion">Duración:</label>
+                        <input type="text" class="form-control" id="duracion" name="duracion" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="edad">Edad recomendada:</label>
+                        <input type="text" class="form-control" id="edad" name="edad" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="numIdiomas">¿Cuántos idiomas?</label>
+                        <input type="number" class="form-control" id="numIdiomas" min="1" onchange="generarCamposIdiomas()">
+                    </div>
+                    <div id="idiomasContainer" class="mt-3"></div>
+                    <input type="hidden" id="idioma" name="idioma">
+                    <br>
+                    <div class="form-group">
+                        <label for="fechaEstreno">Fecha de Estreno:</label>
+                        <input type="date" class="form-control" id="fechaEstreno" name="fechaEstreno" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="trailer">ID de la URL del Trailer:</label>
+                        <input type="text" class="form-control" id="trailer" name="trailer">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="idGenero">Género:</label>
+                        <select class="form-control" id="idGenero" name="idGenero" required>
+                            <option value="">Selecciona un género</option>
+                            <option th:each="genero : ${generos}"
+                                    th:value="${genero.idGenero}"
+                                    th:text="${genero.nombre}">
+                            </option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="estado">Estado del Estreno:</label>
+                        <select class="form-control" id="estado" name="estado" required>
+                            <option value="">Selecciona el estado del estreno</option>
+                            <option value="proximoEstreno">Próximo Estreno</option>
+                            <option value="estreno">Estreno</option>
+                            <option value="estrenoPasado">Estreno Pasado</option>
+                            <option value="reEstreno">Re-Estreno</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="diasEnCartelera">Días en Cartelera:</label>
+                        <input type="number" class="form-control" id="diasEnCartelera" name="diasEnCartelera" min="0">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="imagenFile">Imagen:</label>
+                        <input type="file" class="form-control-file" id="imagenFile" name="imagenFile" required>
+                    </div>
+                    <br>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <a onclick="window.history.back()" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <script>
+            function generarCamposIdiomas() {
+                const numIdiomas = document.getElementById("numIdiomas").value;
+                const container = document.getElementById("idiomasContainer");
+                container.innerHTML = ""; // Limpiar campos existentes
+
+                for (let i = 1; i <= numIdiomas; i++) {
+                    const select = document.createElement("select");
+                    select.name = "idioma" + i;
+                    select.classList.add("form-control", "mb-2");
+
+                    const options = [
+                        {value: "", text: "Selecciona un idioma"},
+                        {value: "Español España", text: "Español España"},
+                        {value: "Español Latinoamericano", text: "Español Latinoamericano"},
+                        {value: "Inglés", text: "Inglés"},
+                        {value: "Portugués", text: "Portugués"},
+                    ];
+
+                    options.forEach(option => {
+                        const opt = document.createElement("option");
+                        opt.value = option.value;
+                        opt.textContent = option.text;
+                        select.appendChild(opt);
+                    });
+
+                    container.appendChild(select);
+                }
+            }
+
+            function concatenarIdiomas() {
+                const numIdiomas = document.getElementById("numIdiomas").value;
+                const idiomas = [];
+
+                for (let i = 1; i <= numIdiomas; i++) {
+                    const idioma = document.querySelector(`select[name='idioma${i}']`).value;
+                    if (idioma.trim()) {
+                        idiomas.push(idioma.trim());
+                    }
+                }
+
+                // Concatenar idiomas y asignar al campo oculto
+                document.getElementById("idioma").value = idiomas.join(", ");
+            }
+        </script>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Sobre Nosotros -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Sobre Nosotros</h5>
+                        <p>Somos una comunidad apasionada por el cine, compartiendo las últimas noticias y reseñas de películas.</p>
+                    </div>
+                    <!-- Enlaces Rápidos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Cartelera</a></li>
+                            <li><a href="#">Próximos Estrenos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <!-- Síguenos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Síguenos</h5>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p>&copy; 2024 La Estación Cine. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
+

@@ -1,0 +1,110 @@
+/* Establecer el fondo con una imagen desde un enlace */
+body {
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/325/14/desktop-wallpaper-black-and-white-cinema-powerpoint-templates-powerpoint-background-movie-theme.jpg'); /* Reemplaza 'URL_DE_LA_IMAGEN' por el enlace de tu imagen */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Estilos para el contenedor del formulario */
+.login-container, form {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro transparente */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Títulos */
+h2 {
+    color: #ffcc00; /* Amarillo brillante */
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Estilo de los inputs */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 2px solid #444;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #ffcc00;
+    background-color: #444;
+    outline: none;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #ffcc00; /* Amarillo */
+    color: #333;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #ffaa00; /* Amarillo más oscuro */
+    transform: scale(1.05);
+}
+
+/* Enlaces */
+a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Mensajes de error y éxito */
+.error-message, .success-message {
+    color: #f44336;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.success-message {
+    color: #4CAF50;
+}
+
+/* Links al pie */
+.links {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.links a {
+    margin-right: 10px;
+    color: #ffcc00;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}

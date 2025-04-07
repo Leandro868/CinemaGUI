@@ -1,0 +1,121 @@
+/* Fuente y colores principales */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1c1c1c; /* Fondo oscuro */
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #121212; /* Color más oscuro para el navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color:#ffc107;
+}
+.navbar-brand img {
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #f0c418;
+}
+
+.nav-link {
+    color: #f0f0f0;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #f0c418;
+}
+
+/* Header */
+header {
+    padding: 1rem 0;
+    background: linear-gradient(90deg, #232323, #121212);
+    color: #f0f0f0;
+}
+
+/* Main Section */
+main h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f0c418; /* Amarillo vibrante */
+}
+
+main p.lead {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+}
+
+/* Cards Section */
+.card {
+    width: 18rem;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    background: #2a2a2a; /* Fondo oscuro para las tarjetas */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+}
+
+.card i {
+    color: #f0c418; /* Íconos amarillos */
+    text-shadow: 0 2px 5px rgba(240, 196, 24, 0.8);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #f0f0f0;
+}
+
+.card-text {
+    color: #b5b5b5;
+}
+
+.btn-custom {
+    background-color: #f0c418;
+    color: #121212;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #ffd83a; /* Amarillo más claro */
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #121212;
+    color: #dcdcdc;
+    padding: 1rem 0;
+    border-top: 2px solid #f0c418;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .d-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+    }
+}

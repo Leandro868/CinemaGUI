@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin - La Estación Cine</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="icon" href="@{/imagenes/logo.jpeg}" type="image/png">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/Admi.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img th:src="@{/imagenes/logo.jpeg}" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                        Admin - La Estación Cine
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarAdmin" aria-controls="navbarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarAdmin">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/listaUsuarios}">Gestion de Usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/listaEstrenos}">Gestión de Estrenos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/editarEstreno}">Edicion de Estrenos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/RegistroNoticia}">Gestión de Noticias</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/logout}">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mt-5 text-center">
+            <h1>Bienvenido al Panel de Administración</h1>
+            <p class="lead">Gestiona el contenido de La Estación Cine desde este panel.</p>
+
+            <!-- Cards Section -->
+            <div class="card-section mt-4">
+                <!-- Gestión de Películas -->
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-film fa-3x"></i>
+                        <h5 class="card-title mt-3">Gestión de Cartelera</h5>
+                        <p class="card-text">Añade, edita o elimina películas de la cartelera.</p>
+                        <a th:href="@{/RegistroPeliculas}" class="btn btn-dark">Administrar</a>
+                    </div>
+                </div>
+
+                <!-- Gestión de Noticias -->
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-newspaper fa-3x"></i>
+                        <h5 class="card-title mt-3">Gestión de Noticias</h5>
+                        <p class="card-text">Añade, edita o elimina noticias del sitio web.</p>
+                        <a th:href="@{/RegistroNoticia}" class="btn btn-dark">Administrar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Mensaje Inspirador -->
+            <section class="inspirational-message mt-5 text-center">
+                <div class="container">
+                    <p>"La magia del cine no solo radica en las historias que cuenta, sino en la forma en que nos conecta a todos."</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- Sobre Nosotros -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Sobre Nosotros</h5>
+                        <p>Somos una comunidad apasionada por el cine, compartiendo las últimas noticias y reseñas de películas.</p>
+                    </div>
+                    <!-- Enlaces Rápidos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces Rápidos</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Inicio</a></li>
+                            <li><a href="#">Cartelera</a></li>
+                            <li><a href="#">Próximos Estrenos</a></li>
+                            <li><a href="#">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <!-- Síguenos -->
+                    <div class="col-md-4 mb-4">
+                        <h5>Síguenos</h5>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p>&copy; 2024 La Estación Cine. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

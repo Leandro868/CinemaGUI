@@ -1,0 +1,183 @@
+body{
+    background-color: #495057 !important;
+}
+/* Estilos para el header */
+header {
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: #ffffff; /* Color de texto blanco */
+    padding-bottom: 20px;
+}
+
+.btn-style{
+    background-color: #495057;
+    color:  #ffffff;
+}
+
+/* Estilos para el main */
+main {
+    background-color: #f8f9fa; /* Color de fondo claro */
+    padding: 40px 0;
+}
+
+/* Estilos para el navbar superior */
+.navbar-top {
+    background-color: #212529; /* Color de fondo más oscuro */
+}
+
+.navbar-top .navbar-brand,
+.navbar-top .nav-link,
+.navbar-top{
+    color: #ffffff;
+}
+
+.navbar-top .form-control {
+    background-color: #495057;
+    border: none;
+    color: #ffffff;
+}
+
+.navbar-top .form-control::placeholder {
+    color: #ced4da;
+}
+
+.navbar-top .btn-outline-success {
+    border-color: #0c0c0c;
+    color: #0c0c0c;
+}
+
+.navbar-top .btn-outline-success:hover {
+    background-color: #0c0c0c;
+    color: #ffffff;
+}
+
+/* Estilos para el navbar principal */
+.navbar-main {
+    background-color: #495057; /* Color de fondo intermedio */
+}
+
+.navbar-main .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar-main .nav-link:hover {
+    color: #adb5bd;
+}
+
+.navbar-main .dropdown-menu {
+    background-color: #495057;
+    border: none;
+}
+
+.navbar-main .dropdown-item {
+    color: #ffffff;
+}
+
+.navbar-main .dropdown-item:hover {
+    background-color: #6c757d;
+}
+
+/* Estilos para los títulos */
+.section-title {
+    text-align: center;
+    background-color: #ffc107;
+    color: #212529;
+    padding: 10px 0;
+    margin: 0px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 40px 0;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #adb5bd;
+    text-decoration: underline;
+}
+
+/* Estilos para los íconos del footer */
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: #ffffff;
+}
+
+.social-icons a:hover {
+    color: #ffc107;
+}
+
+.card-transparent {
+    background-color: rgba(255, 255, 255, 0.5); /* Cambia el valor alpha para ajustar la transparencia */
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #969da3;
+}
+.list-group-item i {
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.card-text-synopsis {
+    width: 100%;
+    height: 200px; /* Puedes ajustar la altura según tu preferencia */
+    resize: none; /* Desactiva el redimensionamiento manual */
+    overflow-y: scroll; /* Habilita el scroll vertical */
+    border: none;
+    background-color: transparent;
+}
+
+.h1-tittle{
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Card Section */
+.card-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: #2c2c2c;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card .card-body i {
+    color: #ffc107;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffc107;
+}
+
+.card-text {
+    color: #f8f9fa;
+}

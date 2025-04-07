@@ -1,0 +1,117 @@
+/* Estilos globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('https://img.freepik.com/vector-gratis/patrones-fisuras-elementos-cine_225004-1155.jpg'); /* Cambia esta ruta a la ubicación de tu imagen */
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: rgba(255, 253, 224, 0.95); /* Color de fondo amarillo suave */
+    padding: 2.5rem;
+    border-radius: 12px;
+    max-width: 400px; /* Ajustar el tamaño del contenedor */
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+    border: 2px solid rgba(255, 204, 0, 0.7); /* Borde suave amarillo */
+}
+
+/* Encabezado */
+h1 {
+    font-size: 2.5rem; /* Aumentar el tamaño del encabezado */
+    color: #facc15; /* Color amarillo para el encabezado */
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra de texto para el encabezado */
+}
+
+/* Estilo del formulario */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Aumentar el espacio entre los elementos */
+}
+
+label {
+    font-weight: bold;
+    color: #facc15; /* Color amarillo para las etiquetas */
+    font-size: 1rem; /* Aumentar el tamaño de la fuente */
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 1rem; /* Aumenta el tamaño del campo de entrada */
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none; /* Quitar el contorno predeterminado */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5); /* Aumentar la visibilidad del enfoque */
+}
+
+/* Botón principal */
+.btn-primary {
+    background: linear-gradient(135deg, #facc15, #eab308); /* Color amarillo elegante */
+    color: #fff; /* Color de texto en blanco */
+    padding: 1.25rem; /* Aumentar el tamaño del botón */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem; /* Aumentar el tamaño de la fuente */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s; /* Agregar transición */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #eab308, #d97706); /* Variación del color amarillo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar el botón al pasar el mouse */
+}
+
+/* Enlace de retorno */
+.btn-secondary {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #facc15; /* Color amarillo para el enlace */
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease, transform 0.2s ease; /* Agregar transición */
+}
+
+.btn-secondary:hover {
+    color: #2563eb;
+    transform: scale(1.05); /* Aumentar el enlace al pasar el mouse */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 480px) {
+    .container {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem; /* Tamaño de fuente para pantallas pequeñas */
+    }
+
+    .btn-primary {
+        font-size: 1rem; /* Tamaño de fuente para botones en pantallas pequeñas */
+    }
+}

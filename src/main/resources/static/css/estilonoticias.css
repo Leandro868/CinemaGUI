@@ -1,0 +1,63 @@
+/* Contenedor de Noticias */
+.container h1 {
+    color: #ffc107;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: bold;
+    
+}
+img {
+        border-radius: 15px; /* Bordes redondeados */
+      }
+/* Estilo para las tarjetas */
+.card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo transparente */
+    border: none;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Animación al pasar el cursor */
+}
+
+/* Tamaño uniforme para las imágenes */
+.card-img-top {
+    object-fit: cover; /* Mantiene el contenido bien ajustado */
+    width: 100%;
+    height: 250px; /* Ajusta el tamaño que prefieras */
+}
+.titulo-tarjeta{
+    color:#ffffff;
+}
+/* Estilo para el título */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Texto de la fecha */
+.card-text {
+    font-size: 0.9rem;
+    color:#ffffff;
+}
+
+/* Paginación centrada */
+.pagination {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.page-item .page-link {
+    background-color: transparent;
+    border: none;
+    color: #ffc107;
+    font-size: 1.1rem;
+}
+
+.page-item.disabled .page-link {
+    color: #888;
+    pointer-events: none;
+}
